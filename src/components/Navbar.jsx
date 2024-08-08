@@ -1,28 +1,30 @@
 import React, { useState } from 'react';
 import {XMarkIcon, Bars3Icon} from '@heroicons/react/24/solid'
 import { egoImg } from '../utils';
+import { useLocation } from 'react-router-dom';
 
 const Navbar = () => {
   const primaryLinks =[
     {name:"Modelos",link:"/"},
-    {name:"Ficha de modelo",link:"/"},
+    {name:"Ficha de modelo",link:"/Ficha"},
   ];
 
   const secondaryLinks = [
-    {name:"Servicios y Accesorios",link:"/"},
-    {name:"Financiación",link:"/"},
-    {name:"Reviews y Comunidad",link:"/"},
+    {name:"Servicios y Accesorios",link:"/#"},
+    {name:"Financiación",link:"/#"},
+    {name:"Reviews y Comunidad",link:"/#"},
 
-    {name:"Toyota Mobility Service",link:"/"},
-    {name:"Toyota Gazoo Racing",link:"/"},
-    {name:"Toyota Híbridos",link:"/"},
+    {name:"Toyota Mobility Service",link:"/#"},
+    {name:"Toyota Gazoo Racing",link:"/#"},
+    {name:"Toyota Híbridos",link:"/#"},
 
-    {name:"Concesionarios",link:"/"},
-    {name:"Test Drive",link:"/"},
-    {name:"Contacto",link:"/"},
+    {name:"Concesionarios",link:"/#"},
+    {name:"Test Drive",link:"/#"},
+    {name:"Contacto",link:"/#"},
   ]
 
   let [open, setOpen] =useState(false);
+  const location = useLocation();
 
   return (
     <div className='shadow-md w-full fixed top-0 left-0'>
@@ -39,12 +41,12 @@ const Navbar = () => {
               }
           </div>
 
-        {/* linke items */}
+        {/* links items */}
           <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-whiteT md:z-auto z-[-1] left-0 w-full md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
                 {
                 primaryLinks.map((link, index) => (
                   <li key={index} className='md:ml-8 md:my-0 my-7 font-semibold'>
-                    <a href={link.link} className='text-blackT hover:text-redT duration-500'>{link.name}</a>
+                    <a href={link.link} className={`text-blackT hover:text-redT duration-500 ${location.pathname === link.link ? 'text-redT border-b-2 border-red-500 py-5' : ''}`}>{link.name}</a>
                   </li>))
                 }
                           
