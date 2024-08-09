@@ -13,15 +13,12 @@ const Navbar = () => {
     { name: "Servicios y Accesorios", link: "/#" },
     { name: "Financiación", link: "/#" },
     { name: "Reviews y Comunidad", link: "/#" },
-    // Separator
     { name: "Toyota Mobility Service", link: "/#" },
     { name: "Toyota Gazoo Racing", link: "/#" },
     { name: "Toyota Híbridos", link: "/#" },
-    // Separator
     { name: "Concesionarios", link: "/#" },
     { name: "Test Drive", link: "/#" },
     { name: "Contacto", link: "/#" },
-    // Separator
     { name: "Actividades", link: "/#" },
     { name: "Servicio al cliente", link: "/#" },
     { name: "Ventas especiales", link: "/#" },
@@ -34,53 +31,44 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className='shadow-md w-full fixed top-0 left-0 z-30'>
-      <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
-        {/* Logo Image */}
-        <div className='cursor-pointer flex items-center gap-1'>
-          <img src={egoImg} alt="EGO" />
-        </div>
+    <nav className='shadow-md w-full fixed z-30 py-4 px-10 bg-whiteT flex items-center justify-start gap-20'>
+      {/*Logo*/}
+      <div className='cursor-pointer'>
+        <img src={egoImg} alt="EGO" />
+      </div>
 
-        {/* Menu Icon */}
-        <div onClick={() => setOpen(!open)} className='absolute right-8 top-6 cursor-pointer w-7 h-7'>
-          {open ? <XMarkIcon /> : <Bars3Icon />}
-        </div>
+      {/*Links items*/}
+      <ul className={`font-semibold transition-transform  ${open ? 'translate-y-[-150%] opacity-0' : 'hidden md:flex items-center flex-grow'}duration-500 ease-out`}>
+        {primaryLinks.map((link, index) => (
+          <li key={index} className='px-5'>
+            <a href={link.link} className={`hover:text-redT duration-500 ${location.pathname === link.link ? 'text-redT border-b-4 border-redT py-6' : ''}`}>{link.name}</a>
+          </li>
+        ))}
+      </ul>
 
-        {/* Links Items */}
-        <ul className={`text-right md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-whiteT md:z-auto z-[-1] left-0 w-full md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
-          {primaryLinks.map((link, index) => (
-            <li key={index} className='md:ml-8 md:my-0 my-7 font-semibold'>
-              <a href={link.link} className={`text-blackT hover:text-redT duration-500 px-5 ${location.pathname === link.link ? 'text-redT border-b-2 border-red-500 py-5' : ''}`}>{link.name}</a>
-            </li>
+      {/* Secondary Links */}
+      <div className={`fixed top-0 right-0 h-full bg-whiteT z-20 transition-transform transform ${open ? 'translate-x-0' : 'translate-x-full'} duration-500 ease-in-out`}>
+        <ul className='font-semibold pt-20'>
+          
+          {[...primaryLinks,...secondaryLinks].map((link, index) => (
+            <React.Fragment key={index}>
+             {(index === primaryLinks.length - 0 || index === primaryLinks.length + 2 || index === primaryLinks.length + 5 || index === primaryLinks.length + 8) && (
+                <div className='border-t border-gray-300 my-1' />
+              )}
+              <li className='md:ml-8 md:my-0 my-6 font-semibold text-right py-1'>
+                <a href={link.link} className='text-blackT hover:text-redT duration-500 px-7'>{link.name}</a>
+              </li>
+            </React.Fragment>
           ))}
-
-          {open && (
-            <>
-              {secondaryLinks.map((link, index) => (
-                <React.Fragment key={index}>
-                  {/* Display separator after the first 3 links */}
-                  {index === 2 && (
-                    <div className='border-t border-gray-300 my-1' />
-                  )}
-                  {/* Display separator after the next 3 links */}
-                  {index === 5 && (
-                    <div className='border-t border-gray-300 my-1' />
-                  )}
-                  {/* Display separator after the next 3 links */}
-                  {index === 8 && (
-                    <div className='border-t border-gray-300 my-1' />
-                  )}
-                  <li className='md:ml-8 md:my-0 my-6 font-semibold'>
-                    <a href={link.link} className='text-blackT hover:text-redT duration-500 px-5'>{link.name}</a>
-                  </li>
-                </React.Fragment>
-              ))}
-            </>
-          )}
         </ul>
       </div>
-    </div>
-  )
+
+      {/* Menu Icon */}
+      <div className='cursor-pointer w-7 h-7 ml-auto z-30' onClick={() => setOpen(!open)}>
+        {open ? <XMarkIcon /> : <Bars3Icon />}
+      </div>
+    </nav>
+  );
 }
 
 export default Navbar;
