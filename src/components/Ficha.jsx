@@ -4,7 +4,7 @@ import { Hilux, Der, Izq } from '../utils';
 
 const Ficha = () => {
   return (
-    <section className='pt-20'>
+    <section className='pt-20' id='ficha'>
 
       <article className='flex flex-col md:flex-row items-center justify-between px-8 md:px-32 mt-10 mb-6'>
         <img src={Hilux} alt="Camioneta Hilux" className="w-full md:w-1/2 h-auto" />
