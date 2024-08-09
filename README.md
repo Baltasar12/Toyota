@@ -25,3 +25,5 @@ Tecnologías Utilizadas
 * Vite: Herramienta de construcción rápida para proyectos de frontend.
 * Tailwind CSS: Framework de diseño de CSS utilitario.
 * react-router-dom: Biblioteca para el manejo de rutas en aplicaciones React.
+
+## Link a la página [text](https://toyota-kappa.vercel.app/)
