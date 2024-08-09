@@ -1,19 +1,26 @@
 import React from 'react';
+import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import Models from './components/Models';
-import Ficha from './components/Ficha';
 import Footer from './components/Footer';
+import LoadingSpinner from './components/LoadingSpinner'; // Importa el Spinner
+
+const Models = lazy(() => import('./components/Models'));
+const Ficha = lazy(() => import('./components/Ficha'));
 
 const App = () => {
   return (
     <Router>
-      <div className='font-mont'>
+      <div className="flex flex-col min-h-screen font-mont">
         <Navbar />
-        <Routes>
-          <Route path="/" element={<Models />} />
-          <Route path="/ficha" element={<Ficha />} />
-        </Routes>
+        <div className="flex-grow">
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Models />} />
+              <Route path="/ficha" element={<Ficha />} />
+            </Routes>
+          </Suspense>
+        </div>
         <Footer />
       </div>
     </Router>

@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 
 const Models = () => {
     const [users, setUsers] = useState([]);
@@ -57,20 +58,21 @@ const Models = () => {
         }
     };
 
+    const targetCarId = 5;
+
     return (
         <section className='pt-20'>
             <h1 className='text-6xl font-bold pl-20 pt-10'>Descubrí todos los modelos</h1>
 
             <section className='px-20 py-10'>
-                <div className='flex flex-col md:flex-row items-center mb-2'>
+            <div className='flex items-center justify-between'>
                     {/* Filter Section */}
-                    <div className='relative'>
-                        <h3 className='font-medium py-1 cursor-pointer md:cursor-auto' onClick={() => setFilterDropdownOpen(prev => !prev)}>
+                    <div className='flex items-center relative'>
+                        <h3 className='font-semibold cursor-pointer lg:cursor-auto mr-4 whitespace-nowrap' onClick={() => setFilterDropdownOpen(prev => !prev)}>
                             Filtrar por
                         </h3>
-
                         {/* Dropdown Menu for Small Screens */}
-                        <div ref={filterDropdownRef} className={`absolute left-0 top-8 bg-white border border-gray-300 rounded-md shadow-md z-10 ${filterDropdownOpen ? 'block' : 'hidden'} md:hidden`}>
+                        <div ref={filterDropdownRef} className={`absolute left-0 top-full mt-1 bg-white border border-gray-300 rounded-md shadow-md z-10 ${filterDropdownOpen ? 'block' : 'hidden'} lg:hidden`}>
                             <button onClick={() => { setFilter("Todos"); setFilterDropdownOpen(false); }} 
                                 className={`block px-4 py-2 w-full text-left ${filter === "Todos" ? 'bg-gray-300' : ''}`}
                             >
@@ -97,9 +99,8 @@ const Models = () => {
                                 SUVs y Crossovers
                             </button>
                         </div>
-
                         {/* Filtering Buttons for Large Screens */}
-                        <div className='hidden md:flex gap-2 pl-4'>
+                        <div className='hidden lg:flex gap-2'>
                             <button onClick={() => setFilter("Todos")}
                                 className={`px-4 py-1 ${filter === "Todos" ? 'bg-gray-300 rounded-full' : ''}`}>
                                     Todos
@@ -113,23 +114,23 @@ const Models = () => {
                                     Hatchback
                             </button>
                             <button onClick={() => setFilter("Pickups y Comerciales")}
-                                className={`px-4 py-1 ${filter === "Pickups y Comerciales" ? 'bg-gray-300 rounded-full' : ''}`}>
+                                className={`px-4 py-1 ${filter === "Pickups y Comerciales" ? 'bg-gray-300 rounded-full' : ''} whitespace-nowrap`}>
                                     Pickups y Comerciales
                             </button>
                             <button onClick={() => setFilter("SUVs")}
-                                className={`px-4 py-1 ${filter === "SUVs" ? 'bg-gray-300 rounded-full' : ''}`}>
+                                className={`px-4 py-1 ${filter === "SUVs" ? 'bg-gray-300 rounded-full' : ''} whitespace-nowrap`}>
                                     SUVs y Crossovers
                             </button>
                         </div>
                     </div>
 
                     {/* Sort Section */}
-                    <div className=''>
-                        <button onClick={() => setSortDropdownOpen(!sortDropdownOpen)} className='px-4 py-2 bg-gray-300 rounded-full'>
+                    <div className='flex justify-end w-full'>
+                        <button onClick={() => setSortDropdownOpen(!sortDropdownOpen)} className='px-4 font-semibold hover:bg-gray-300 transition duration-500 rounded-full py-2'>
                             Ordenar por: {sort}
                         </button>
                         {sortDropdownOpen && (
-                            <div ref={sortDropdownRef} className='absolute right-0 mt-2 w-48 bg-white border border-gray-300 rounded-lg shadow-lg'>
+                            <div ref={sortDropdownRef} className='absolute  mt-10 w-48 bg-white border border-gray-300 rounded-lg shadow-lg'>
                                 <button onClick={() => { setSort("Nada"); setSortDropdownOpen(false); }} className='block px-4 py-2 text-gray-700 hover:bg-gray-200 w-full text-left'>
                                     Nada
                                 </button>
@@ -154,10 +155,23 @@ const Models = () => {
 
                 <div className='flex flex-wrap'>
                     {sortedCars().map((car) => (
-                        <div key={car.id} className='p-4 w-full md:w-1/2 lg:w-1/3'>
-                            <h4 className='text-2xl font-semibold text-center'>{car.name}</h4>
-                            <p className='text-gray-700 text-center pt-1'>{car.year} | ${car.price.toLocaleString()}</p>
-                            <img src={car.photo} alt={`${car.name} photo`} className='w-full h-auto'/>
+                        <div key={car.id} className='p-4 w-full md:w-1/2 lg:w-1/3 flex flex-col'>
+
+                            <div className='mt-2 text-center'>
+                                <h4 className='text-2xl font-semibold mb-1 cursor-pointer'>{car.name}</h4>
+                                <p className='text-gray-700 mb-2'>{car.year} | ${car.price.toLocaleString()}</p>
+ 
+                            </div>
+                            <div className='flex-grow flex items-end justify-center'>
+                                <img src={car.photo} alt={`${car.name} photo`} className='w-full h-48 object-cover'/>
+                            </div>
+                            <div className='flex justify-center'>
+                                {car.id === targetCarId && (
+                                    <Link to={`Ficha`} className='block w-2/6 px-4 py-2 bg-blackT text-white rounded-full text-center mt-2 hover:bg-redT transition duration-500'>
+                                        Ver modelo
+                                    </Link>
+                                )}
+                            </div>
                         </div>
                     ))}
                 </div>

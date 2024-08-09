@@ -27,10 +27,10 @@ const Navbar = () => {
   const location = useLocation();
 
   return (
-    <div className='shadow-md w-full fixed top-0 left-0'>
+    <div className='shadow-md w-full fixed top-0 left-0 z-30'>
       <div className='md:flex items-center justify-between bg-white py-4 md:px-10 px-7'>
         {/*Logo Image*/}
-          <div className='font-bold text-2xl cursor-pointer flex items-center gap-1'>
+          <div className='cursor-pointer flex items-center gap-1'>
             <img src={egoImg} alt="EGO"/>
           </div>
 
@@ -42,17 +42,17 @@ const Navbar = () => {
           </div>
 
         {/* links items */}
-          <ul className={`md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-whiteT md:z-auto z-[-1] left-0 w-full md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
+          <ul className={`text-right md:flex md:items-center md:pb-0 pb-12 absolute md:static bg-whiteT md:z-auto z-[-1] left-0 w-full md:pl-0 pl-9 transition-all duration-500 ease-in ${open ? 'top-12' : 'top-[-490px]'}`}>
                 {
                 primaryLinks.map((link, index) => (
                   <li key={index} className='md:ml-8 md:my-0 my-7 font-semibold'>
-                    <a href={link.link} className={`text-blackT hover:text-redT duration-500 ${location.pathname === link.link ? 'text-redT border-b-2 border-red-500 py-5' : ''}`}>{link.name}</a>
+                    <a href={link.link} className={`text-blackT hover:text-redT duration-500 px-5 ${location.pathname === link.link ? 'text-redT border-b-2 border-red-500 py-5' : ''}`}>{link.name}</a>
                   </li>))
                 }
                           
                 {open && secondaryLinks.map((link, index) => (
                   <li key={index} className='md:ml-8 md:my-0 my-7 font-semibold'>
-                    <a href={link.link} className='text-blackT hover:text-redT duration-500'>{link.name}</a>
+                    <a href={link.link} className='text-blackT hover:text-redT duration-500 px-5'>{link.name}</a>
                   </li>))   
                 }
           </ul>
