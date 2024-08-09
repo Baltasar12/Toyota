@@ -21,7 +21,7 @@ const Ficha = () => {
 
       <PhotoCarousel />
 
-      <article className='flex flex-col md:flex-row items-center justify-between px-8 md:px-32 mt-10'>
+      <article className='flex flex-col-reverse md:flex-row items-center justify-between px-8 md:px-32 mt-10'>
         <div>
           <h1 className='text-lg md:text-xl font-semibold mb-2'>Tansmisión</h1>
           <p className='text-sm md:text-base'>Manual de 6 velocidades. Tracción 4x2, optimizando la eficiencia y el control durante la conducción. <br /> La tracción 4x2 proporciona potencia únicamente a dos ruedas, br generalmente las traseras, <br />lo que resulta en una conducción suave en carreteras pavimentadas y en condiciones normales, <br />favoreciendo el ahorro de combustible y la simplicidad mecánica.</p>
