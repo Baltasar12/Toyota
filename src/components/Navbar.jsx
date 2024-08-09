@@ -38,7 +38,7 @@ const Navbar = () => {
       </div>
 
       {/*Links items*/}
-      <ul className={`font-semibold transition-transform  ${open ? 'translate-y-[-150%] opacity-0' : 'hidden md:flex items-center flex-grow'}duration-500 ease-out`}>
+      <ul className={`font-semibold hidden md:flex items-center flex-grow transition-opacity duration-500 ease-out ${open ? 'opacity-0' : 'hidden md:flex items-center flex-grow'}`}>
         {primaryLinks.map((link, index) => (
           <li key={index} className='px-5'>
             <a href={link.link} className={`hover:text-redT duration-500 ${location.pathname === link.link ? 'text-redT border-b-4 border-redT py-6' : ''}`}>{link.name}</a>
@@ -47,15 +47,15 @@ const Navbar = () => {
       </ul>
 
       {/* Secondary Links */}
-      <div className={`fixed top-0 right-0 h-full bg-whiteT z-20 transition-transform transform ${open ? 'translate-x-0' : 'translate-x-full'} duration-500 ease-in-out`}>
+      <div className={`fixed top-0 right-0 h-full bg-whiteT z-20  transition-transform transform ${open ? 'translate-x-0' : 'translate-x-full'} duration-500 ease-in-out`}>
         <ul className='font-semibold pt-20'>
           
           {[...primaryLinks,...secondaryLinks].map((link, index) => (
             <React.Fragment key={index}>
              {(index === primaryLinks.length - 0 || index === primaryLinks.length + 2 || index === primaryLinks.length + 5 || index === primaryLinks.length + 8) && (
-                <div className='border-t border-gray-300 my-1' />
+                <div className='border-t border-gray-300 my-4' />
               )}
-              <li className='md:ml-8 md:my-0 my-6 font-semibold text-right py-1'>
+              <li className='md:ml-8 md:my-2 my-3 font-semibold text-right py-1'>
                 <a href={link.link} className='text-blackT hover:text-redT duration-500 px-7'>{link.name}</a>
               </li>
             </React.Fragment>
