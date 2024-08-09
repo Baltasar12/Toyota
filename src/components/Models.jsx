@@ -61,10 +61,12 @@ const Models = () => {
     const targetCarId = 5;
 
     return (
-        <section className='pt-20'>
-            <h1 className='text-6xl font-bold pl-20 pt-10'>Descubrí todos los modelos</h1>
+        <section className='pt-20 px-0 sm:px-2 md:px-2'>
+            
 
-            <section className='px-20 py-10'>
+            <section className='px-10 py-10 md:px-20'>
+            <h1 className='text-6xl font-bold  py-10 text-left'>Descubrí todos los modelos</h1>
+
             <div className='flex items-center justify-between'>
                     {/* Filter Section */}
                     <div className='flex items-center relative'>
