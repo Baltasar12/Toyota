@@ -47,7 +47,7 @@ const Navbar = () => {
       </ul>
 
       {/* Secondary Links */}
-      <div className={`fixed top-0 right-0 h-full bg-whiteT z-20  transition-transform transform ${open ? 'translate-x-0' : 'translate-x-full'} duration-500 ease-in-out`}>
+      <div className={`fixed top-0 right-0 h-full overflow-y-auto bg-whiteT z-20  transition-transform transform ${open ? 'translate-x-0' : 'translate-x-full'} duration-500 ease-in-out`}>
         <ul className='font-semibold pt-20'>
           
           {[...primaryLinks,...secondaryLinks].map((link, index) => (
