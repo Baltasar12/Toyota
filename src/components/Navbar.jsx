@@ -52,11 +52,11 @@ const Navbar = () => {
           
           {[...primaryLinks,...secondaryLinks].map((link, index) => (
             <React.Fragment key={index}>
-             {(index === primaryLinks.length - 0 || index === primaryLinks.length + 2 || index === primaryLinks.length + 5 || index === primaryLinks.length + 8) && (
+             {(index === primaryLinks.length - 0 || index === primaryLinks.length + 2 || index === primaryLinks.length + 5 || index === primaryLinks.length + 9) && (
                 <div className='border-t border-gray-300 my-4' />
               )}
               <li className='md:ml-8 md:my-2 my-3 font-semibold text-right py-1'>
-                <a href={link.link} className='text-blackT hover:text-redT duration-500 px-7'>{link.name}</a>
+                <a href={link.link} className={`hover:text-redT duration-500 ${location.pathname === link.link ? 'text-redT border-b-4 border-redT py-2' : ''}`}>{link.name}</a>
               </li>
             </React.Fragment>
           ))}
