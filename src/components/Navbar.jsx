@@ -56,7 +56,7 @@ const Navbar = () => {
                 <div className='border-t border-gray-300 my-4' />
               )}
               <li className='md:ml-8 md:my-2 my-3 font-semibold text-right py-1'>
-                <a href={link.link} className={`hover:text-redT duration-500 ${location.pathname === link.link ? 'text-redT border-b-4 border-redT py-2' : ''}`}>{link.name}</a>
+                <a href={link.link} className={`px-9 hover:text-redT duration-500 ${location.pathname === link.link ? 'text-redT border-b-4 border-redT py-2' : ''}`}>{link.name}</a>
               </li>
             </React.Fragment>
           ))}
