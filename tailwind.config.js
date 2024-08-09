@@ -13,6 +13,7 @@ export default {
         redT: "#EB0A1E",
         blackT: "#373737",
         whiteT: "#FFFFFF",
+        grayT: "F7F7F7"
       }
     },
   },

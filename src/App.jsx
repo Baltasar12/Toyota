@@ -3,7 +3,7 @@ import { lazy, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import LoadingSpinner from './components/LoadingSpinner'; // Importa el Spinner
+import LoadingSpinner from './components/LoadingSpinner';
 
 const Models = lazy(() => import('./components/Models'));
 const Ficha = lazy(() => import('./components/Ficha'));
