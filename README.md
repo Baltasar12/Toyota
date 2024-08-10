@@ -8,7 +8,7 @@ Para levantar el proyecto localmente, sigue estos pasos:
 
 1. **Clona el repositorio**
 
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/Baltasar12/Toyota.git
 
 2. **Accede al directorio del proyecto**
 
