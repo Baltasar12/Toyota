@@ -52,7 +52,7 @@ const Ficha = () => {
         <div className='overflow-hidden'>
           <div className='flex transition-transform duration-500'
             style={{
-              transform: `translateX(-${currentIndex * (100 / hightlightsSlides.length)}%)`,
+              transform: `translateX(-${currentIndex * (220 / hightlightsSlides.length)}%)`,
               width: `${100 * carousel.length / hightlightsSlides.length}%`,
             }}>
             {carousel.map((dato, index) => (
