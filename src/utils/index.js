@@ -18,28 +18,33 @@ export const hightlightsSlides = [
     {
       id: 1,
       textLists: [
-        "Dos alternativas diesel con turbo",
-        "de geometría variable, 1GD (2.8 L)",
-        "y 2GD (2.4 L).",
+        "Dos alternativas diesel con turbo de geometría variable, 1GD (2.8 L) y 2GD (2.4 L).",
       ],
       image: motor,
+      title:"Nuevos motores Toyota",
+      alt: "Motor"
     },
     {
       id: 2,
-      textLists: ["Mayor confort de marcha,", "estabilidad y capacidad Off Road."],
+      textLists: ["Mayor confort de marcha, estabilidad y capacidad Off Road."],
       image: suspension,
+      title:"Suspensión mejorada",
+      alt:"Suspensión"
     },
     {
       id: 3,
       textLists: [
-        "Posibilidad de elección de caja",
-        "atomática de manejo."
+        "Posibilidad de elección de caja automática de manejo."
       ],
       image: transmision,
+      title:"Transmisión automática",
+      alt: "Transmisión"
     },
     {
       id: 4,
-      textLists: ["Posibilidad de elección de caja", "manual de manejo."],
+      textLists: ["Posibilidad de elección de caja manual de manejo."],
       image: transmisionM,
+      title:"Transmisión manual",
+      alt: "Transmisión manual"
     },
   ];

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
+import { gsap } from 'gsap';
 
 const Models = () => {
     const [users, setUsers] = useState([]);
@@ -41,6 +42,15 @@ const Models = () => {
         };
     }, []);
 
+    useEffect(() => {
+        // Animaciones GSAP
+        gsap.fromTo(
+          '.animate',
+          { opacity: 0, y: 20 },
+          { opacity: 1, y: 0, duration: 1, stagger: 0.2 }
+        );
+      }, []);
+
     const filteredCars = users.filter(user => filter === "Todos" || user.segment === filter);
 
     const sortedCars = () => {
@@ -65,7 +75,7 @@ const Models = () => {
             
 
             <section className='px-10 py-10 md:px-20'>
-            <h1 className='text-6xl font-bold  py-10 text-left'>Descubrí todos los modelos</h1>
+            <h1 className='animate text-6xl font-bold  py-10 text-left '>Descubrí todos los modelos</h1>
 
             <div className='flex items-center justify-between'>
                     {/* Filter Section */}
